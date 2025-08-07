@@ -18,7 +18,7 @@ function dynamicTable(data, id) {
         for (const value in element) {
             const td = document.createElement("td");
             row.appendChild(td);
-             console.log(data[value]);
+             //console.log(data[value]);
             td.innerHTML = element[value];
         }
         tbody.appendChild(row);
