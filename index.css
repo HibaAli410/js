@@ -1,0 +1,83 @@
+/* Custom Advanced Styles for Tailwind CSS Portfolio Page */
+
+/* Google Fonts Imports */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+    background: #27272a;
+    border-radius: 5px;
+    border: 2px solid #09090b;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #3f3f46;
+}
+
+/* Glow Background Spheres */
+.glow-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.glow-sphere {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.15;
+}
+
+.glow-1 {
+    top: -10%;
+    right: 10%;
+    width: 45vw;
+    height: 45vw;
+    background: radial-gradient(circle, #8b5cf6 0%, rgba(0,0,0,0) 70%);
+}
+
+.glow-2 {
+    bottom: -15%;
+    left: 5%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, #06b6d4 0%, rgba(0,0,0,0) 70%);
+}
+
+.glow-3 {
+    top: 40%;
+    left: 35%;
+    width: 35vw;
+    height: 35vw;
+    background: radial-gradient(circle, #ec4899 0%, rgba(0,0,0,0) 70%);
+    opacity: 0.08;
+}
+
+/* Card Glow Mouse Spotlight Effect */
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle 150px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.04), transparent);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Interactive hover-state helpers */
+.project-card:hover {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 
+                0 0 1px 1px rgba(255, 255, 255, 0.1) inset;
+}
