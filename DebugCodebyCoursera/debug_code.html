@@ -1,19 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Debugging Example</title>
+    <title>Premium Debug Calculator</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./debug_code.css">
 </head>
 <body>
-    <h1>Debugging Example</h1>
-    <label for="input1">Enter Number 1:</label>
-    <input type="number" id="input1"><br><br>
-    <label for="input2">Enter Number 2:</label>
-    <input type="number" id="input2"><br><br>
-    <button onclick="performOperation()">Perform Operation</button>
-    <p id="result"></p>
+    <!-- Background glowing gradients -->
+    <div class="glow-bg">
+        <div class="glow-sphere glow-1"></div>
+        <div class="glow-sphere glow-2"></div>
+    </div>
+
+    <!-- Main Wrapper -->
+    <div class="app-container">
+        <!-- Back Arrow Link -->
+        <a href="../index.html" class="back-link">
+            <svg class="back-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Back to Hub</span>
+        </a>
+
+        <!-- Header -->
+        <header class="header">
+            <span class="badge">COURSERA LAB</span>
+            <h1 class="title">Debug & Calc Engine</h1>
+            <p class="subtitle">Interactive mathematical unit with execution call-stack visualizer.</p>
+        </header>
+
+        <!-- Calculator & Debug Console Split Layout -->
+        <div class="layout-grid">
+            <!-- Calculator Card -->
+            <div class="glass-card calculator-card">
+                <div class="calc-glow"></div>
+                <!-- Calculator Screen -->
+                <div class="calc-screen">
+                    <div class="expression-display" id="expression"></div>
+                    <div class="input-display" id="display">0</div>
+                </div>
+
+                <!-- Calculator Keypad -->
+                <div class="keypad">
+                    <!-- Row 1 -->
+                    <button class="btn btn-action" data-action="clear" title="Clear (Esc)">C</button>
+                    <button class="btn btn-action" data-action="backspace" title="Backspace (⌫)">⌫</button>
+                    <button class="btn btn-action" data-action="percent" title="Percentage (%)">%</button>
+                    <button class="btn btn-operator" data-val="/" title="Divide (/)">÷</button>
+
+                    <!-- Row 2 -->
+                    <button class="btn btn-num" data-val="7">7</button>
+                    <button class="btn btn-num" data-val="8">8</button>
+                    <button class="btn btn-num" data-val="9">9</button>
+                    <button class="btn btn-operator" data-val="*" title="Multiply (*)">×</button>
+
+                    <!-- Row 3 -->
+                    <button class="btn btn-num" data-val="4">4</button>
+                    <button class="btn btn-num" data-val="5">5</button>
+                    <button class="btn btn-num" data-val="6">6</button>
+                    <button class="btn btn-operator" data-val="-" title="Subtract (-)">-</button>
+
+                    <!-- Row 4 -->
+                    <button class="btn btn-num" data-val="1">1</button>
+                    <button class="btn btn-num" data-val="2">2</button>
+                    <button class="btn btn-num" data-val="3">3</button>
+                    <button class="btn btn-operator" data-val="+" title="Add (+)">+</button>
+
+                    <!-- Row 5 -->
+                    <button class="btn btn-action" data-action="negate" title="Negate (±)">±</button>
+                    <button class="btn btn-num" data-val="0">0</button>
+                    <button class="btn btn-num" data-val=".">.</button>
+                    <button class="btn btn-equals" id="equals" title="Calculate (Enter)">=</button>
+                </div>
+            </div>
+
+            <!-- Debug / Execution Log Card -->
+            <div class="glass-card debug-card">
+                <div class="debug-header">
+                    <div class="status-indicator">
+                        <span class="status-dot green"></span>
+                        <span class="status-text font-heading">Call Stack & Console</span>
+                    </div>
+                    <button class="btn-clear-log" id="clear-log" title="Clear log">Clear Log</button>
+                </div>
+                <div class="debug-terminal" id="debug-log">
+                    <div class="terminal-line system-msg">[SYSTEM] Engine initialized. Ready for operations.</div>
+                    <div class="terminal-line info-msg">[INFO] Keypad & keyboard listeners active.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="./debug_code.js"></script>
 </body>
-
 </html>

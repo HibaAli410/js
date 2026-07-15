@@ -1,15 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <title>Health Articles</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Articles - JavaScript Lab</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Sleek Dark Scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #09090b;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #27272a;
+        border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #3f3f46;
+    }
+  </style>
 </head>
+<body class="bg-zinc-950 text-zinc-100 font-body min-h-screen flex flex-col">
+  <!-- Glowing decorative blobs -->
+  <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none opacity-20">
+    <div class="absolute top-[-10%] left-[20%] w-[40vw] h-[40vw] rounded-full bg-cyan-600 blur-[120px] radial-gradient"></div>
+    <div class="absolute bottom-[-10%] right-[20%] w-[45vw] h-[45vw] rounded-full bg-teal-600 blur-[120px] radial-gradient"></div>
+  </div>
 
-<body>
-  <h1>Health Articles</h1>
-  <div id="articles"></div>
+  <!-- Header / Navigation -->
+  <header class="border-b border-white/5 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-2 text-zinc-400 hover:text-white font-heading font-medium text-sm transition-colors group">
+        <svg class="w-4 h-4 transform transition-transform group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        Back to Hub
+      </a>
+      <span class="font-heading font-bold text-sm tracking-wide text-zinc-300">⚡ JS LAB</span>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto w-full px-6 py-12 md:py-16 flex-grow">
+    <!-- Page Intro -->
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="inline-block bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 px-3 py-1 rounded-full text-xs font-heading font-semibold uppercase tracking-wider mb-4">Content Portal</span>
+      <h1 class="font-heading text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-white">Wellness & Health <span class="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">Articles</span></h1>
+      <p class="text-zinc-400 text-sm md:text-base">Dynamically fetched wellness information, insights, and structural guidelines to build a balanced lifestyle.</p>
+    </div>
+
+    <!-- Error/Loading State Container -->
+    <div id="status-message" class="text-center py-8 hidden">
+      <div class="inline-flex items-center gap-3 bg-red-500/10 border border-red-500/20 text-red-400 px-6 py-3 rounded-xl text-sm">
+        <span>⚠️</span>
+        <span id="status-text">Loading articles...</span>
+      </div>
+    </div>
+
+    <!-- Articles List Container -->
+    <div id="articles" class="grid grid-cols-1 gap-8 md:gap-10">
+      <!-- Dynamically rendered articles will be inserted here -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/5 py-8 text-center text-zinc-600 text-xs mt-auto">
+    <p>© 2026 JavaScript Lab Workspace. All content fetched dynamically.</p>
+  </footer>
+
   <script src="./health_article.js"></script>
 </body>
-
 </html>
