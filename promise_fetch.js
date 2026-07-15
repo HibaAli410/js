@@ -17,7 +17,7 @@
 let metadata = fetch('https://api.thecatapi.com/v1/images/0XYvRd7oD');  //fullfill
 metadata.then(resolve => resolve.json())
     .then(data => {
-        console.log(data);
+        console.log(data + "This is data");
         // console.log(resolve.status);
     });
 // From folder 6
